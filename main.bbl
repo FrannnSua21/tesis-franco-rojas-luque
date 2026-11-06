@@ -1,0 +1,94 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Aguirre}{Aguirre}{20XX}]{inf:informe_tecnico}
+Aguirre, R. (20XX, mes-nom*).
+\newblock Titulo de informe.
+\newblock tipo*~n*, Institución, Dirección*.
+\newblock Notas y observaciones*.
+
+\bibitem[\protect\citeauthoryear{{American Psychological Association
+  [APA]}}{{American Psychological Association [APA]}}{2020}]{lib:apa}
+{American Psychological Association [APA]} (2020).
+\newblock {\em Publication Manual of the American Psychological Association\/}
+  (7 ed.).
+\newblock American Psychological Association.
+
+\bibitem[\protect\citeauthoryear{Arango}{Arango}{20XX}]{con:conferencia}
+Arango, C. (20XX, mes-nom*).
+\newblock Titulo de conferencia.
+\newblock In Editor (Ed.), {\em Titulo de libro de conferencia}, Volumen~v* of
+  {\em s*}, Dirección*, (pp.\ xx--yy*). Editor*.
+\newblock Notas y observaciones*.
+
+\bibitem[\protect\citeauthoryear{Chilindrina}{Chilindrina}{20XX}]{act:acta}
+Chilindrina, L. (Ed.) (20XX, mes-nom*).
+\newblock {\em Maria Nieves}, Volumen~v* of {\em s*}, Dirección*. *: Editor*.
+\newblock Notas y observaciones*.
+
+\bibitem[\protect\citeauthoryear{Marroquin}{Marroquin}{20XX}]{ina:articulo_en_acta}
+Marroquin, F. (20XX, mes-nom*).
+\newblock Titulo del articulo en acta de conferencia.
+\newblock In {\em Titulo del libro}, Volumen~v* of {\em s*}, Dirección*, (pp.\
+  xx--yy*). Patrocinador: Editor*.
+\newblock Notas y observaciones*.
+
+\bibitem[\protect\citeauthoryear{Martinez}{Martinez}{20XX}]{sec:seccion_libro}
+Martinez, M. (20XX, mes-nom*).
+\newblock Titulo de sección.
+\newblock In Editor* (Ed.), {\em Titulo de libro\/} (e* ed.), Volumen~v* of
+  {\em s*}, tipo* Cap-n*, (pp.\ xx--yy*). Dirección*: Editor.
+\newblock Notas y observaciones*.
+
+\bibitem[\protect\citeauthoryear{Mesa}{Mesa}{20XX}]{opc:opcional}
+Mesa, F. (20XX*, mes-nom*).
+\newblock Titulo*.
+\newblock Como de publico*.
+\newblock Notas y observaciones*.
+
+\bibitem[\protect\citeauthoryear{Panza}{Panza}{20XX}]{man:manual}
+Panza, S. (20XX, mes-nom*).
+\newblock {\em Titulo del manual\/} (e* ed.).
+\newblock Dirección*: Patrocinador*.
+\newblock Notas y observaciones*.
+
+\bibitem[\protect\citeauthoryear{Perez}{Perez}{20XX}]{art:articulo}
+Perez, P. (20XX, mes-nom*).
+\newblock {\em Revista\/}.
+\newblock {\em 82\/}(20), xx--yy*.
+\newblock Notas y observaciones*.
+
+\bibitem[\protect\citeauthoryear{Rufino}{Rufino}{20XX}]{lib:libro}
+Rufino, N. (20XX).
+\newblock {\em Titulo de libro}.
+\newblock Editor.
+
+\bibitem[\protect\citeauthoryear{Valdez}{Valdez}{20XX}]{tes:tesis}
+Valdez, R. (20XX, mes-nom*).
+\newblock Titulo de tesis.
+\newblock Tesis de diplomado*, Nombre de universidad, Dirección*.
+\newblock Notas y observaciones*.
+
+\bibitem[\protect\citeauthoryear{Villagran}{Villagran}{20XX}]{fll:folleto}
+Villagran, C. (20XX*, mes-nom*).
+\newblock Titulo de folleto.
+\newblock Como de publico*, Dirección*.
+\newblock Notas y observaciones*.
+
+\bibitem[\protect\citeauthoryear{Vivar}{Vivar}{20XX}]{phd:phd_tesis}
+Vivar, H. (20XX, mes-nom*).
+\newblock {\em Titulo de tesis de PHD}.
+\newblock Ph.\ D. thesis, Nombre de universidad, Dirección*.
+\newblock Notas y observaciones*.
+
+\bibitem[\protect\citeauthoryear{Wikipedia\textsuperscript{\textregistered}}{Wikipedia\textsuperscript{\textregistered}}{2018}]{web:web}
+Wikipedia\textsuperscript{\textregistered} (2018, mes-nomagosto).
+\newblock Bibtex.
+\newblock \path{https://es.wikipedia.org/wiki/BibTeX}.
+\newblock Accedido en junio de 2019 (ejemplo).
+
+\bibitem[\protect\citeauthoryear{Zapata}{Zapata}{20XX}]{ent:entre_libro}
+Zapata, A. (20XX).
+\newblock {\em Titulo de libro}, (pp.\ 10--20).
+\newblock Editor.
+
+\end{thebibliography}

@@ -1,0 +1,215 @@
+PORTADA
+
+Universidad Nacional del Altiplano
+Facultad de Ingeniería Mecánica Eléctrica, Electrónica y Sistemas
+Ingeniería de Sistemas
+Investigación En Ingeniería De Sistemas
+Proyecto de tesis - estado del arte
+Presentado por: Rojas Luque Franco
+Docente: Ing. Jimenez Chura Adolfo Carlos
+Grupo: A
+Semestre: VIII
+Código: 230494
+19 de octubre de 2026
+
+ÍNDICE
+
+1. Introducción (pág. 1)
+2. Marco contextual (pág. 1)
+3. Estado del arte (pág. 2)
+3.1. Predicción del nivel del Lago Titicaca (2)
+3.1.1. Sistemas neuro-difusos híbridos (2)
+3.1.2. Redes neuronales recurrentes con aumento de datos (2)
+3.2. Variabilidad climática e hidrología del lago (3)
+3.3. Teledetección y calidad del agua en lagos (3)
+3.3.1. Productos satelitales globales sobre el Titicaca (3)
+3.3.2. Teledetección y aprendizaje automático (3)
+3.4. Inteligencia artificial generativa espacio-temporal en teledetección (4)
+3.4.1. ChangeBridge (4)
+3.4.2. UniTS (4)
+3.4.3. Fundamentos de la difusión condicionada (5)
+3.5. Modelos fundacionales para series temporales y pronóstico climático (5)
+3.6. Gemelos digitales ambientales (5)
+3.7. Síntesis comparativa (6)
+3.8. Vacío de conocimiento (6)
+
+ÍNDICE DE FIGURAS
+1. Relación entre los antecedentes revisados y las capas del sistema propuesto (pág. 1)
+
+ÍNDICE DE TABLAS
+1. Síntesis de los antecedentes y brecha respecto del proyecto (pág. 6)
+
+TÍTULO
+
+Sistema Inteligente 4D para el Modelamiento, Visualización y Predicción Espacio-Temporal de Cambios Ecosistémicos en el Lago Titicaca y la Región Puno mediante Inteligencia Artificial
+
+1. INTRODUCCIÓN
+
+El presente documento expone el estado del arte del proyecto de tesis "Sistema Inteligente 4D para el Modelamiento, Visualización y Predicción Espacio-Temporal de Cambios Ecosistémicos en el Lago Titicaca y la Región Puno mediante Inteligencia Artificial". El proyecto plantea una plataforma que integra el modelamiento y la predicción de variables del ecosistema (nivel del lago, clima, cobertura del suelo y calidad del agua), la generación de escenarios futuros mediante inteligencia artificial generativa y la visualización interactiva en cuatro dimensiones, tres espaciales y una temporal.
+
+La revisión comprende ocho trabajos publicados entre 2023 y 2026, de acceso abierto, que abordan los ejes del proyecto: la predicción del nivel del Lago Titicaca, su variabilidad climática, la teledetección de su calidad de agua, la generación de imágenes satelitales mediante modelos de difusión y los gemelos digitales ambientales. Se incorporan, además, los modelos fundacionales y de difusión que constituyen la base técnica del proyecto. Cada antecedente se acompaña de su enlace de acceso y de una valoración de su relación con el presente trabajo.
+
+2. MARCO CONTEXTUAL
+
+El Altiplano peruano, con altitudes comprendidas entre 3 800 y 5 500 m s. n. m., concentra evidencias significativas del cambio climático, entre ellas el retroceso glaciar, la degradación de los bofedales altoandinos y las variaciones del nivel del Lago Titicaca, que en 2023 alcanzó uno de sus valores más bajos en décadas. El lago, compartido por Perú y Bolivia, constituye un recurso hídrico, pesquero y cultural de primer orden para la región Puno.
+
+El estudio de este sistema requiere integrar fuentes heterogéneas: registros históricos del nivel del lago, reanálisis y proyecciones climáticas, imágenes satelitales y mediciones in situ. La literatura reciente ha abordado cada una de estas fuentes de forma predominantemente aislada, como se expone en las secciones siguientes y se resume en la Figura 1.
+
+Figura 1: Relación entre los antecedentes revisados y las capas del sistema propuesto.
+- Datos y teledetección (Maligaya et al. (2024); Deng et al. (2024))
+- Predicción temporal (Pham et al. (2023); Flores et al. (2026); Sulca et al. (2024))
+- Generación espacio-temporal (Zhao et al. (2025); Zhang et al. (2025))
+- Gemelo digital 4D (Artioli et al. (2026))
+(Flechas: Datos y teledetección → Predicción temporal; Datos y teledetección → Generación espacio-temporal; Predicción temporal → Gemelo digital 4D; Generación espacio-temporal → Gemelo digital 4D)
+
+3. ESTADO DEL ARTE
+
+3.1. Predicción del nivel del Lago Titicaca
+
+La predicción del nivel del lago es el eje con mayor número de antecedentes específicos. Se revisan dos trabajos que representan dos generaciones de métodos: los sistemas neuro-difusos optimizados mediante metaheurísticas y las redes neuronales recurrentes.
+
+3.1.1. Sistemas neuro-difusos híbridos
+
+Pham et al. pham2023 entrenaron un sistema de inferencia neuro-difuso adaptativo (ANFIS) hibridado con tres algoritmos de optimización: genético (GA), de enjambre de partículas (PSO) y de ballena (WOA). Se emplearon registros mensuales del nivel del lago de 1973 a 2017, destinando el 75 % a calibración (agosto de 1974 a enero de 2007; 390 registros) y el 25 % a prueba (febrero de 2007 a enero de 2017; 120 registros). Las entradas se definieron mediante combinaciones de rezagos mensuales guiadas por la autocorrelación y la estacionalidad.
+
+El mejor desempeño correspondió a ANFIS-WOA con los rezagos t − 1, t − 2, t − 3, t − 4 y t − 12, con un error cuadrático medio (RMSE) de 0.087 m, un error absoluto medio (MAE) de 0.063 m y un coeficiente de determinación R² de 0.964. Los autores concluyen que la memoria estacional de un año es la más informativa para esta serie.
+
+Disponible en: https://doi.org/10.1007/s13201-022-01815-z
+
+Relación con el proyecto. Este trabajo establece una línea base cuantitativa para el predictor temporal del sistema propuesto y justifica la inclusión del rezago de doce meses como variable de entrada en el ajuste del modelo fundacional empleado.
+
+3.1.2. Redes neuronales recurrentes con aumento de datos
+
+Flores et al. flores2026 compararon cuatro arquitecturas recurrentes (LSTM, BiLSTM, GRU y BiGRU) con datos mensuales del repositorio DAHITI, de julio de 2002 a agosto de 2024. Su aporte distintivo fue un aumento de datos por interpolación lineal, que genera 2, 4 o 6 valores sintéticos entre observaciones consecutivas. Todos los modelos mejoraron con el aumento. El mejor resultado correspondió al GRU con seis valores sintéticos, con un RMSE de prueba de 0.0182 m y un R² de 0.9986, valor que los autores contrastan con los reportados previamente para el mismo lago mediante SVR-GWO (0.089 m) y ANFIS-WOA (0.095 m).
+
+Cabe matizar dicho resultado. El propio estudio informa que, para el pronóstico a un mes, la mayoría de los modelos con aumento no difiere de forma estadísticamente significativa de los modelos sin él, con excepción del BiLSTM. Asimismo, la comparación con trabajos anteriores no es directa, pues las series, los periodos y los conjuntos de prueba difieren.
+
+Disponible en: https://doi.org/10.3389/frwa.2026.1688939
+
+Relación con el proyecto. Constituye el antecedente más reciente de predicción con inteligencia artificial en el Titicaca y aporta un valor de referencia de rendimiento. Su advertencia sobre la significancia estadística respalda el uso de pruebas inferenciales (ANOVA o Friedman, α = 0,05) en la validación del proyecto. Su limitación principal, al modelar una única serie, es el punto que el sistema propuesto pretende superar mediante variables climáticas y espaciales.
+
+3.2. Variabilidad climática e hidrología del lago
+
+Sulca, Apaéstegui y Tacza sulca2024 analizaron la variabilidad del nivel del lago durante el siglo XX a partir de registros mensuales de SENAMHI (1921–2018), el reanálisis ERA-20C (1921–2010), las temperaturas superficiales del mar (HadISST) y la precipitación de cuatro estaciones del Altiplano. Mediante análisis de ondeletas continuas y filtros de Morlet separaron señales anuales, bienales (22–28 meses), interanuales (80–108 meses), decadales (13–14 años aproximadamente), interdecadales (25–26 años) y multidecadales (30–65 años).
+
+La señal bienal se asoció con la temperatura del Atlántico tropical sudoriental y la interanual con el Atlántico sur; las componentes decadal e interdecadal se explicaron mediante combinaciones de índices del Pacífico y del Atlántico, y la multidecadal se vinculó con la Oscilación Multidecadal del Atlántico (AMO). Los autores construyeron además modelos de regresión lineal múltiple, calibrados en 1921–2010 y validados en 2011–2018, y detectaron cuatro puntos de quiebre en la serie (1940, 1949, 1974 y 1990).
+
+Disponible en: https://doi.org/10.3389/fclim.2023.1325224
+
+Relación con el proyecto. El trabajo explica las causas de la variabilidad del nivel, no solo su magnitud. Respalda la incorporación de índices oceánicos como variables exógenas del predictor temporal, la verificación de que el modelo reproduzca los quiebres históricos y la inclusión de forzantes oceánicos en el análisis de las proyecciones CMIP6.
+
+3.3. Teledetección y calidad del agua en lagos
+
+3.3.1. Productos satelitales globales sobre el Titicaca
+
+Maligaya, Baltodano, Agramont y van Griensven maligaya2024 evaluaron dos productos satelitales globales, el Copernicus Global Land Service (CGLS) y el ESA Lakes Climate Change Initiative (ESA-CCI), para estimar la temperatura superficial del lago, la turbidez y la clorofila-a entre 2010 y 2020. Los resultados se compararon con mediciones in situ de campañas oficiales peruanas (ANA/PEBLT) y bolivianas (UOB-ALT-TDPS), con un total de 14 campañas.
+
+Ambos productos presentaron exactitud limitada frente a los datos de campo. ESA-CCI estimó mejor la temperatura superficial que CGLS, y ambos reprodujeron patrones espacio-temporales similares de turbidez y clorofila-a. Los autores concluyen que los productos son utilizables para el monitoreo del lago, pero requieren mejoras en la identificación de píxeles, la clasificación de tipos ópticos de agua, la corrección atmosférica y los algoritmos de recuperación, preferiblemente ajustados a las condiciones locales.
+
+Disponible en: https://doi.org/10.3390/rs16244785
+
+Relación con el proyecto. Evidencia que los productos globales resultan insuficientes sin calibración local, lo que justifica la construcción de un conjunto de datos propio a partir de Sentinel-2 y Landsat. La temperatura superficial, la turbidez y la clorofila-a se identifican, además, como variables candidatas para el modelamiento y la visualización.
+
+3.3.2. Teledetección y aprendizaje automático
+
+Deng, Zhang, Pan, Yang y Gharabaghi deng2024 presentan una revisión de los avances en teledetección y aprendizaje automático para la gestión de la calidad del agua en lagos. Comparan plataformas satelitales (Landsat, Sentinel-2, MODIS, RapidEye e Hyperion) según su resolución, cobertura espectral y adecuación al tamaño del lago para estimar clorofila-a, turbidez y materia orgánica disuelta coloreada. Examinan, asimismo, los métodos de aprendizaje automático, desde modelos lineales y basados en árboles hasta aprendizaje profundo (redes convolucionales, recurrentes y generativas adversarias), y su capacidad para manejar datos multiespectrales e hiperespectrales de alta dimensión y comportamiento no lineal.
+
+Entre los desafíos señalados figuran la calidad de los datos, la interpretabilidad de los modelos y la integración entre imágenes y aprendizaje automático. Se recomienda mejorar la fusión de datos, la generalización de los modelos y los marcos multifuente.
+
+Disponible en: https://doi.org/10.3390/rs16224196
+
+Relación con el proyecto. Proporciona el marco de referencia para la selección de sensores y técnicas. Respalda el uso conjunto de Sentinel-2 (10 m) y Landsat (30 m), y su recomendación de fusión multifuente es coherente con la capa de datos del proyecto, que integra imágenes satelitales, reanálisis y proyecciones climáticas. Los desafíos de interpretabilidad y generalización se asumen como limitaciones a discutir.
+
+3.4. Inteligencia artificial generativa espacio-temporal en teledetección
+
+3.4.1. ChangeBridge
+
+Zhao et al. zhao2025 proponen ChangeBridge, un modelo generativo condicional que, a partir de una imagen previa a un evento y de descripciones multimodales de este, genera la escena posterior. Los métodos anteriores trataban únicamente cambios debidos a eventos, como nuevas construcciones, y no los cambios graduales en el tiempo, como los estacionales. ChangeBridge aborda ambos al modelar la transición como un puente de difusión con tres componentes: una inicialización compuesta a partir del estado previo, en lugar de ruido puro; una difusión de deriva asíncrona con un mapa de deriva por píxel; y un procedimiento de eliminación de ruido que incorpora dicho mapa. Según los autores, los resultados son más consistentes espacial y temporalmente que los de los métodos del estado del arte. La versión en línea del preprint indica su aceptación en CVPR 2026.
+
+Disponible en: https://arxiv.org/abs/2507.04678
+
+Relación con el proyecto. Es el antecedente más próximo a la capa generativa propuesta, pues genera la escena futura a partir de la imagen actual. La distinción entre cambio por evento y evolución gradual resulta pertinente en el Altiplano, donde coexisten sequías puntuales y tendencias de largo plazo.
+
+3.4.2. UniTS
+
+Zhang et al. zhang2025 presentan UniTS, un modelo generativo único para tareas de teledetección que habitualmente se resuelven con modelos independientes: reconstrucción de series temporales, eliminación de nubes, detección de cambios semánticos y pronóstico. Se fundamenta en flow matching, que define una trayectoria determinista del ruido al objetivo guiada por condiciones propias de cada tarea, y utiliza un transformador de difusión con bloques espacio-temporales. Incorpora un inyector adaptativo de condiciones para entradas multimodales y un modulador espacio-temporal. Los autores reportan ventajas sobre modelos especializados, en particular ante nubosidad severa, modalidades ausentes y cambios fenológicos estacionales complejos.
+
+Disponible en: https://arxiv.org/abs/2512.04461
+
+Relación con el proyecto. Aborda un problema práctico del conjunto de datos: la nubosidad de las imágenes Sentinel-2 durante la época de lluvias en el Altiplano. Su reconstrucción de series y su eliminación de nubes pueden emplearse en el preprocesamiento, y su pronóstico de series satelitales constituye un punto de comparación para el módulo predictivo.
+
+3.4.3. Fundamentos de la difusión condicionada
+
+Rombach et al. rombach2022 introdujeron los modelos de difusión latente, base de Stable Diffusion, que sintetizan imágenes de alta resolución en un espacio latente y reducen así el costo computacional. Zhang, Rao y Agrawala zhang2023controlnet propusieron ControlNet, que permite condicionar estos modelos mediante guías espaciales como mapas de profundidad o de segmentación. En el proyecto, dichas guías corresponden al modelo digital de elevación y a las máscaras de cobertura del suelo. Los trabajos de Zhao et al. y Zhang et al. demuestran que esta familia de modelos ya se adapta a imágenes de teledetección.
+
+Disponible en: https://arxiv.org/abs/2112.10752
+Disponible en: https://arxiv.org/abs/2302.05543
+
+3.5. Modelos fundacionales para series temporales y pronóstico climático
+
+Ansari et al. ansari2024 presentaron Chronos, un modelo fundacional basado en transformadores que realiza pronóstico zero-shot de series temporales con precisión competitiva frente a modelos especializados; la versión Chronos-2 ansari2025 extiende el enfoque a series multivariadas. En pronóstico meteorológico global, Bi et al. bi2023 mostraron con Pangu-Weather que un transformador 3D entrenado con reanálisis ERA5 supera al modelo numérico operacional del ECMWF a plazos de uno a siete días, con inferencia en segundos.
+
+Disponible en: https://arxiv.org/abs/2403.07815
+Disponible en: https://arxiv.org/abs/2510.15821
+Disponible en: https://doi.org/10.1038/s41586-023-06185-3
+
+Relación con el proyecto. Estos trabajos, aunque no son específicos del Titicaca, sustentan el uso de Chronos-2 como predictor temporal. Permiten trabajar con pocas series locales sin entrenar desde cero y habilitan una hipótesis contrastable frente a Pham et al. y Flores et al.: que un modelo fundacional ajustado iguala o mejora el desempeño de los modelos específicos del lago, con ventaja al incorporar variables climáticas.
+
+3.6. Gemelos digitales ambientales
+
+Artioli, Borga y Costa artioli2026 mapean sistemáticamente 121 estudios revisados por pares, publicados entre 2020 y 2025, sobre gemelos digitales ecológicos y ambientales. Los estudios abarcan áreas urbanas, agricultura, sistemas marinos y costeros, ríos y lagos, bosques, glaciares y ciencias del sistema Tierra. La mayoría se ubica en los niveles de madurez tecnológica (TRL) 2 a 6 y ninguno alcanza un estado listo para su despliegue. Los marcos de sostenibilidad son predominantemente ambientales, con escasa atención a los beneficios sociales y económicos. Las limitaciones técnicas más frecuentes son la integración, la interoperabilidad y la calibración, y los autores recomiendan los principios de gobernanza de datos F.A.I.R., C.A.R.E. y T.R.U.S.T.
+
+Disponible en: https://doi.org/10.54941/ahfe1007273
+
+Relación con el proyecto. Ofrece el marco conceptual de gemelo digital y confirma la inmadurez del campo, lo que respalda la oportunidad del trabajo. Los principios F.A.I.R. orientan la publicación del conjunto de datos, y la calibración, identificada como limitación recurrente, motiva la validación frente a datos de verdad terrestre. Al tratarse de un trabajo de congreso, se emplea como panorama y no como evidencia experimental.
+
+3.7. Síntesis comparativa
+
+La Tabla 1 sintetiza el enfoque de cada antecedente y la brecha que deja respecto del proyecto.
+
+Tabla 1: Síntesis de los antecedentes y brecha respecto del proyecto.
+
+- Pham et al. (2023) | ANFIS con metaheurísticas sobre el nivel del lago (1973–2017) | Serie univariada; sin componente espacial
+- Flores et al. (2026) | Redes recurrentes con aumento de datos (2002–2024) | Serie univariada; mejora no significativa a un mes en la mayoría de modelos
+- Sulca et al. (2024) | Variabilidad y forzantes climáticos del nivel del lago | Análisis explicativo; sin predicción espacial
+- Maligaya et al. (2024) | Evaluación de productos satelitales globales sobre el lago | Exactitud limitada; sin calibración local
+- Deng et al. (2024) | Revisión de teledetección y aprendizaje automático en lagos | Revisión general; sin caso altoandino
+- Zhao et al. (2025) | Difusión para generar la escena posterior a partir de la previa | No aplicado a ecosistemas lacustres de altura
+- Zhang et al. (2025) | Modelo generativo unificado para series satelitales | No aplicado a ecosistemas lacustres de altura
+- Artioli et al. (2026) | Revisión de gemelos digitales ambientales | Ningún sistema listo para despliegue
+
+3.8. Vacío de conocimiento
+
+De la revisión se desprenden tres brechas. En primer lugar, los trabajos de predicción del Titicaca pham2023, flores2026 modelan únicamente la serie del nivel, sin considerar la dimensión espacial del cambio. En segundo lugar, la teledetección del lago se ha evaluado con productos globales de exactitud limitada maligaya2024, sin ajuste local. En tercer lugar, los modelos de difusión para teledetección zhao2025, zhang2025 no se han aplicado a ecosistemas lacustres altoandinos, y los gemelos digitales ambientales permanecen en etapas tempranas de madurez artioli2026.
+
+En las fuentes consultadas no se identificó un sistema que unifique el modelamiento, la visualización 4D y la predicción espacio-temporal de los cambios ecosistémicos del Lago Titicaca y la región Puno. Esta afirmación se limita a los trabajos revisados y debe contrastarse con búsquedas sistemáticas en Scopus y Web of Science. Dicha brecha constituye el espacio de contribución del presente proyecto.
+
+REFERENCIAS
+
+[1] Flores, A., Guzman-Valdivia, J., Morales-Gonzales, R., Tito-Chura, H., & Cuentas-Toledo, O. (2026). Lake Titicaca water level forecasting using data augmentation and recurrent neural networks. Frontiers in Water, 8. https://doi.org/10.3389/frwa.2026.1688939
+
+[2] Pham, Q. B., Mohammadi, B., Moazenzadeh, R., Heddam, S., Pillco Zolá, R., et al. (2023). Prediction of lake water-level fluctuations using adaptive neuro-fuzzy inference system hybridized with metaheuristic optimization algorithms. Applied Water Science, 13, 13. https://doi.org/10.1007/s13201-022-01815-z
+
+[3] Sulca, J., Apaéstegui, J., & Tacza, J. (2024). New insights into the biennial-to-multidecadal variability of the water level fluctuation in Lake Titicaca in the 20th century. Frontiers in Climate, 5. https://doi.org/10.3389/fclim.2023.1325224
+
+[4] Maligaya, V. H., Baltodano, A., Agramont, A., & van Griensven, A. (2024). Exploring trends and variability of water quality over Lake Titicaca using global remote sensing products. Remote Sensing, 16(24), 4785. https://doi.org/10.3390/rs16244785
+
+[5] Deng, Y., Zhang, Y., Pan, D., Yang, S. X., & Gharabaghi, B. (2024). Review of recent advances in remote sensing and machine learning methods for lake water quality management. Remote Sensing, 16(22), 4196. https://doi.org/10.3390/rs16224196
+
+[6] Zhao, Z., Wu, C., Cao, X., Wang, D., Chen, H., Tang, D., Zhang, L., & Zheng, Z. (2025). ChangeBridge: Spatiotemporal image generation with multimodal controls for remote sensing. arXiv:2507.04678. https://arxiv.org/abs/2507.04678
+
+[7] Zhang, Y., Liang, S., Li, W., Ma, H., Xu, J., Ma, Y., Xie, J., Li, W., Zhang, M., Tao, R., & Xia, X.-G. (2025). UniTS: Unified spatio-temporal generative model for remote sensing. arXiv:2512.04461. https://arxiv.org/abs/2512.04461
+
+[8] Artioli, L., Borga, G., & Costa, P. (2026). Environmental digital twins: a review of challenges and opportunities. En Human Interaction and Emerging Technologies (IHIET-FS 2026). AHFE Open Access. https://doi.org/10.54941/ahfe1007273
+
+[9] Ansari, A. F., Stella, L., Turkmen, C., et al. (2024). Chronos: Learning the language of time series. Transactions on Machine Learning Research. https://arxiv.org/abs/2403.07815
+
+[10] Ansari, A. F., Shchur, O., Küken, J., et al. (2025). Chronos-2: From univariate to universal forecasting. arXiv. https://arxiv.org/abs/2510.15821
+
+[11] Bi, K., Xie, L., Zhang, H., Chen, X., Gu, X., & Tian, Q. (2023). Accurate medium-range global weather forecasting with 3D neural networks. Nature, 619(7970), 533–538. https://doi.org/10.1038/s41586-023-06185-3
+
+[12] Rombach, R., Blattmann, A., Lorenz, D., Esser, P., & Ommer, B. (2022). High-resolution image synthesis with latent diffusion models. En Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR). https://arxiv.org/abs/2112.10752
+
+[13] Zhang, L., Rao, A., & Agrawala, M. (2023). Adding conditional control to text-to-image diffusion models. En Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV). https://arxiv.org/abs/2302.05543
+
+Nota: en el PDF las citas aparecen como claves crudas (pham2023, flores2026, etc.) en negrita en lugar de "(Pham et al., 2023)"; probablemente falta resolver las citas en LaTeX. Las dejé tal cual salen.
